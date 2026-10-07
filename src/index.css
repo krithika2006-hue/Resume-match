@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Visible keyboard focus state */
+:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+/* Floating Animations for Glass Cards */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes floatSlight {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-1 {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatReverse 4.8s ease-in-out infinite 0.6s;
+}
+
+.animate-float-3 {
+  animation: floatSlow 4.4s ease-in-out infinite 1.2s;
+}
+
+.animate-float-score {
+  animation: floatSlight 3.6s ease-in-out infinite 0.8s;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .animate-float-score {
+    animation: none !important;
+  }
+
+  .hero-video-bg {
+    display: none !important;
+  }
+}

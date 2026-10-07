@@ -242,6 +242,13 @@ npm run build
 
 ---
 
+## 👥 Contributors & Team
+
+- **Krithika** ([@krithika2006-hue](https://github.com/krithika2006-hue))
+- **Manimozhi Jeganathan** ([@manimozhijeganathan-art](https://github.com/manimozhijeganathan-art))
+
+---
+
 ## 🛡️ License & Ethics Notice
 
 Every score calculated within this platform reflects algorithmic alignment with specific job description requirements, not a predictive hiring guarantee or automated employment decision.

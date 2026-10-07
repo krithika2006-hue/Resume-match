@@ -8,7 +8,18 @@ export default function App() {
 
   useEffect(() => {
     try {
-      const savedUser = localStorage.getItem('verimatch_user');
+      let savedUser = localStorage.getItem('verimatch_user');
+      // If navigating directly to /dashboard without session, initialize sample session
+      if (!savedUser && window.location.pathname === '/dashboard') {
+        const demoUser = {
+          name: 'Sarah Chen',
+          email: 'sarah.chen@example.com',
+          role: 'Senior Full-Stack & AI Systems Engineer',
+          signedInAt: new Date().toISOString()
+        };
+        localStorage.setItem('verimatch_user', JSON.stringify(demoUser));
+        savedUser = JSON.stringify(demoUser);
+      }
       if (savedUser) {
         setCurrentUser(JSON.parse(savedUser));
       }
@@ -38,7 +49,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // If user is logged in and route is /dashboard (or user is active), render Dashboard
+  // If user is logged in and route is /dashboard, render DashboardLayout
   if (currentPath === '/dashboard' && currentUser) {
     return (
       <DashboardLayout 
